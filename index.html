@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Білич Ю. Є.</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .app {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 1rem;
+            width: 300px;
+            background: #9fcf37;
+        }
+
+        input {
+            width: 100%;
+            margin-bottom: 0.5rem;
+            text-align: right;
+        }
+
+        .buttons button {
+            width: 25%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background-color: #e0e0e0e3;
+        }
+
+        .buttons button:focus {
+            outline: none;
+        }
+
+        .buttons br {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Лабораторна робота №2. <br/> Білич Ю. Є. КІУКІ-19-8 <br/> Варіант 7</h1>
+    <div class="app">
+        <input id="calc" type="text">
+        <input id="result" type="number" readonly>
+        <div class="buttons">
+          <button onclick="addToCalc('1')">1</button>
+          <button onclick="addToCalc('2')">2</button>
+          <button onclick="addToCalc('3')">3</button>
+          <br>
+          <button onclick="addToCalc('4')">4</button>
+          <button onclick="addToCalc('5')">5</button>
+          <button onclick="addToCalc('6')">6</button>
+          <br>
+          <button onclick="addToCalc('7')">7</button>
+          <button onclick="addToCalc('8')">8</button>
+          <button onclick="addToCalc('9')">9</button>
+          <br>
+          <button onclick="addToCalc('0')">0</button>
+          <button onclick="addToCalc('.')">.</button>
+          <button onclick="calculate()">=</button>
+          <br>
+          <button onclick="addToCalc('+')">+</button>
+          <button onclick="addToCalc('-')">-</button>
+          <button onclick="addToCalc('*')">*</button>
+          <button onclick="addToCalc('/')">/</button>
+          <br>
+          <button onclick="clearCalc()">C</button>
+        </div>
+    </div>
+      <script>
+        const calcInput = document.querySelector('#calc');
+        const resultInput = document.querySelector("#result");
+
+        function addToCalc(value) {
+            calcInput.value += value;
+        }
+
+        function clearCalc() {
+            calcInput.value = "";
+            resultInput.value = "";
+        }
+
+        function calculate() {
+            try {
+                resultInput.value = eval(calcInput.value);
+            } catch (error) {
+                resultInput.value = "Error";
+            }
+        }
+      </script>
+</body>
+</html>
